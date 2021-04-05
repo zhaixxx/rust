@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rust.dao.BookMapper">
+    <insert id="addBook" parameterType="com.rust.pojo.Books">
+        insert into ssmbulid.books(bookName,bookCounts,detail)
+        value (#{bookName},#{bookCounts},#{detail});
+    </insert>
+
+    <insert id="deleteBookById" parameterType="int">
+        delete from ssmbuild.books where bookID=#{bookID}
+    </insert>
+
+    <insert id="updateBook" parameterType="com.rust.pojo.Books">
+        update ssmbuild.books set bookName=#{bookName},bookCounts=#{bookCounts},detail=#{detail} where bookID=#{bookID};
+
+    </insert>
+
+    <select id="queryBookById" resultType="com.rust.pojo.Books">
+        select * from ssmbuild.books
+        where bookID=#{bookID}
+    </select>
+
+    <select id="queryAllBook" resultType="com.rust.pojo.Books">
+        select * from ssmbuild.books
+    </select>
+
+</mapper>
