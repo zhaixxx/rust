@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:绑定接口-->
+<mapper namespace="com.rust.Dao.Mapper.AppealMapper">
+    <sql id="appeal">
+        ap_content, ap_ID, ap_tel, ap_type, ap_time, ap_result, ap_status
+    </sql>
+    <insert id="insertAppeal" parameterType="Appeal">
+        insert into Rust.appeal ${appeal}
+         values (#{apContext},#{apId},#{apTel},#{apType},#{apTime},#{apResult},#{apStatus})
+    </insert>
+
+</mapper>
