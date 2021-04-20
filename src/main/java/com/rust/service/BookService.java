@@ -1,22 +1,37 @@
 package com.rust.service;
 
+import com.rust.dao.BookMapper;
 import com.rust.pojo.Books;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+@Service
+public class BookService{
 
-public interface BookService {
-    //增加一本书
-    int addBook(Books book);
+    //service 调dao层，组合Dao
+    private BookMapper bookMapper;
 
-    //删除一本书
-    int deleteBookById(int id);
+    public void setBookMapper(BookMapper bookMapper) {
+        this.bookMapper = bookMapper;
+    }
 
-    //更新一本书
-    int updateBook(Books books);
+    public int addBook(Books books) {
+        return bookMapper.addBook(books);
+    }
 
-    //查询一本书
-    Books queryBookById(int id);
+    public int deleteBookById(int id) {
+        return bookMapper.deleteBookById(id);
+    }
 
-    //查询全部书
-    List<Books> queryAllBook();
+    public int updateBook(Books books) {
+        return bookMapper.updateBook(books);
+    }
+
+    public Books queryBookById(int id) {
+        return bookMapper.queryBookById(id);
+    }
+
+    public List<Books> queryAllBook() {
+        return bookMapper.queryAllBook();
+    }
 }
